@@ -3,10 +3,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader } from "../components";
+import swal from "sweetalert";
 
 const CreatePost = () => {
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true);
                 const response = await fetch(
-                    "https://dalle-arbb.onrender.com/api/v1/dalle",
+                    "http://localhost:8080/api/v1/dalle",
                     {
                         method: "POST",
                         headers: {
@@ -44,19 +44,21 @@ const CreatePost = () => {
                         }),
                     }
                 );
+                //console.log(response);
 
                 const data = await response.json();
                 setForm({
                     ...form,
                     photo: `data:image/jpeg;base64,${data.photo}`,
                 });
+                swal("Great Image");
             } catch (err) {
                 alert(err);
             } finally {
                 setGeneratingImg(false);
             }
         } else {
-            alert("Please provide proper prompt");
+            swal("Please provide proper prompt");
         }
     };
 
@@ -67,7 +69,7 @@ const CreatePost = () => {
             setLoading(true);
             try {
                 const response = await fetch(
-                    "https://dalle-arbb.onrender.com/api/v1/post",
+                    "http://localhost:8080/api/v1/post",
                     {
                         method: "POST",
                         headers: {
@@ -78,7 +80,7 @@ const CreatePost = () => {
                 );
 
                 await response.json();
-                alert("Success");
+                swal("Added to Community Showcase");
                 navigate("/");
             } catch (err) {
                 alert(err);
@@ -86,7 +88,7 @@ const CreatePost = () => {
                 setLoading(false);
             }
         } else {
-            alert("Please generate an image with proper details");
+            swal("Please generate an image with proper details");
         }
     };
 
