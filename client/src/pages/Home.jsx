@@ -30,7 +30,7 @@ const Home = () => {
 
         try {
             const response = await fetch(
-                "http://aigenerator3.onrender.com/api/v1/post",
+                "https://aigenerator3.onrender.com/api/v1/post",
                 {
                     method: "GET",
                     headers: {
