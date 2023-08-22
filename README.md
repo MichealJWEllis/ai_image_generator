@@ -56,7 +56,7 @@ ReactJS, Node.js, Express.js, MongoDB
 
 ## Screenshot
 
-
+![Homepage](https://github.com/MichealJWEllis/ai_image_generator/assets/76069321/c9e4869c-33da-4892-83c3-1d6bf2fbcfc7)
 
 ---
 
