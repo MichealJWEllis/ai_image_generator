@@ -33,7 +33,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true);
                 const response = await fetch(
-                    "https://aigenerator3.onrender.com/api/v1/dalle",
+                    "http://aigenerator3.onrender.com/api/v1/dalle",
                     {
                         method: "POST",
                         headers: {
@@ -53,7 +53,8 @@ const CreatePost = () => {
                 });
                 swal("Great Image");
             } catch (err) {
-                alert(err);
+                console.log(err);
+                swal(err);
             } finally {
                 setGeneratingImg(false);
             }
@@ -69,7 +70,7 @@ const CreatePost = () => {
             setLoading(true);
             try {
                 const response = await fetch(
-                    "https://aigenerator3.onrender.com/api/v1/post",
+                    "http://aigenerator3.onrender.com/api/v1/post",
                     {
                         method: "POST",
                         headers: {
