@@ -50,7 +50,7 @@ Introducing a cutting-edge community showcase platform leveraging the MERN stack
 
 ## Code_Used
 
-ReactJS, Node.js, Express.js, MongoDB
+ReactJS, Node.js, Express.js, MongoDB, Vite
 
 ---
 
